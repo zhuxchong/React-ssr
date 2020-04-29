@@ -16,12 +16,12 @@ node_modules
 out/
 .*.swp
 
-/dist
-/dist/index.html
-dist/*
-dist/css/style.css
-dist/index.html
-dist/js/bundle.js
+/build
+/build/index.html
+build/*
+build/css/style.css
+build/index.html
+build/js/bundle.js
 
 .DS_Store
 
