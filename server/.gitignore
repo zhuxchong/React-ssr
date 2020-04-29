@@ -1,0 +1,28 @@
+/node_modules
+node_modules
+
+# IntelliJ #
+.idea*
+*.iml
+# Elastic Beanstalk Files
+
+.elasticbeanstalk/*
+
+!.elasticbeanstalk/*.cfg.yml
+
+!.elasticbeanstalk/*.global.yml
+
+.elasticbeanstalk/
+out/
+.*.swp
+
+/dist
+/dist/index.html
+dist/*
+dist/css/style.css
+dist/index.html
+dist/js/bundle.js
+
+.DS_Store
+
+.history/*
