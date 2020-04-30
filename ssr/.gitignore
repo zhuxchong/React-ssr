@@ -19,15 +19,12 @@ out/
 /build
 /build/index.html
 build/*
-build/css/style.css
-build/index.html
-build/js/bundle.js
+
+
 /public
 /public/index.html
 public/*
-public/css/style.css
-public/index.html
-public/js/bundle.js
+
 
 .DS_Store
 
