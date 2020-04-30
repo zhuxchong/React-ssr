@@ -593,7 +593,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _Home = __webpack_require__(/*! ./containers/Home/Home */ \"./src/containers/Home/Home.jsx\");\n\nvar _Home2 = _interopRequireDefault(_Home);\n\nvar _Login = __webpack_require__(/*! ./containers/Login/Login */ \"./src/containers/Login/Login.jsx\");\n\nvar _Login2 = _interopRequireDefault(_Login);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ClientRoute = function ClientRoute() {\n  return _react2.default.createElement(\n    _react2.default.Fragment,\n    null,\n    _react2.default.createElement(_reactRouterDom.Route, { path: \"/\", exact: true, component: _Home2.default }),\n    _react2.default.createElement(_reactRouterDom.Route, { path: \"/login\", exact: true, component: _Login2.default })\n  );\n};\nexports.default = ClientRoute;\n\n//# sourceURL=webpack:///./src/Routes.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _Home = __webpack_require__(/*! ./containers/Home/Home */ \"./src/containers/Home/Home.jsx\");\n\nvar _Home2 = _interopRequireDefault(_Home);\n\nvar _Login = __webpack_require__(/*! ./containers/Login/Login */ \"./src/containers/Login/Login.jsx\");\n\nvar _Login2 = _interopRequireDefault(_Login);\n\nvar _Header = __webpack_require__(/*! ./components/Header */ \"./src/components/Header.jsx\");\n\nvar _Header2 = _interopRequireDefault(_Header);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ClientRoute = function ClientRoute() {\n  return _react2.default.createElement(\n    \"div\",\n    null,\n    _react2.default.createElement(_reactRouterDom.Route, { path: \"/\", exact: true, component: _Home2.default }),\n    _react2.default.createElement(_reactRouterDom.Route, { path: \"/login\", exact: true, component: _Login2.default })\n  );\n};\nvar RouterWithPortal = function RouterWithPortal() {\n  return _react2.default.createElement(\n    _react2.default.Fragment,\n    null,\n    _react2.default.createElement(_Header2.default, null),\n    _react2.default.createElement(ClientRoute, null)\n  );\n};\nexports.default = RouterWithPortal;\n\n//# sourceURL=webpack:///./src/Routes.js?");
 
 /***/ }),
 
@@ -609,6 +609,18 @@ eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/i
 
 /***/ }),
 
+/***/ "./src/components/Header.jsx":
+/*!***********************************!*\
+  !*** ./src/components/Header.jsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Header = function Header() {\n  return _react2.default.createElement(\n    \"div\",\n    null,\n    _react2.default.createElement(\n      \"div\",\n      null,\n      \" \",\n      _react2.default.createElement(\n        _reactRouterDom.Link,\n        { to: \"/\" },\n        \"Home\"\n      )\n    ),\n    _react2.default.createElement(\n      \"div\",\n      null,\n      \" \",\n      _react2.default.createElement(\n        _reactRouterDom.Link,\n        { to: \"/login\" },\n        \"Login\"\n      )\n    )\n  );\n};\n\nexports.default = Header;\n\n//# sourceURL=webpack:///./src/components/Header.jsx?");
+
+/***/ }),
+
 /***/ "./src/containers/Home/Home.jsx":
 /*!**************************************!*\
   !*** ./src/containers/Home/Home.jsx ***!
@@ -617,7 +629,7 @@ eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/i
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n  return _react2.default.createElement(\n    \"div\",\n    {\n      onClick: function onClick() {\n        alert(\"123\");\n      }\n    },\n    \"welcome to xzc\"\n  );\n};\n\nexports.default = Home;\n\n//# sourceURL=webpack:///./src/containers/Home/Home.jsx?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _Header = __webpack_require__(/*! ../../components/Header */ \"./src/components/Header.jsx\");\n\nvar _Header2 = _interopRequireDefault(_Header);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Home = function Home() {\n  return _react2.default.createElement(\n    \"div\",\n    {\n      onClick: function onClick() {\n        alert(\"123\");\n      }\n    },\n    \"welcome to xzc\"\n  );\n};\n\nexports.default = Home;\n\n//# sourceURL=webpack:///./src/containers/Home/Home.jsx?");
 
 /***/ }),
 

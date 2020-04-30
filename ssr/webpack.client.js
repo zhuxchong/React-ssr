@@ -6,7 +6,7 @@ const defaultConfig = {
   mode: "development",
   entry: "./src/client/index.js",
   output: {
-    filename: "index.js",
+    filename: "react_bundles.js",
     path: path.resolve(__dirname, "public")
   }
 };

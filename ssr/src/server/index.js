@@ -20,7 +20,7 @@ app.get("*", function(req, res) {
 			</head>
 			<body>
 				<div id='root'>${content}</div>
-				<script src='./index.js'></script>
+				<script src='./react_bundles.js'></script>
 			</body>
 		</html>
   `);
