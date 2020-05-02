@@ -21,9 +21,9 @@ out/
 build/*
 
 
-/public
-/public/index.html
-public/*
+/react
+/react/index.html
+react/*
 
 
 .DS_Store

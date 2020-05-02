@@ -7,7 +7,7 @@ const defaultConfig = {
   entry: "./src/client/index.js",
   output: {
     filename: "react_bundles.js",
-    path: path.resolve(__dirname, "public")
+    path: path.resolve(__dirname, "react")
   }
 };
 module.exports = merge(config, defaultConfig);
