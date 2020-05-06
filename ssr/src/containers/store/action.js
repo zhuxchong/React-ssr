@@ -8,7 +8,7 @@ const changeHomeList = data => {
   };
 };
 export const getHomeList = () => {
-  return dispatch => {
+  return async dispatch => {
     axios
       .get("http://47.95.113.63/ssr/api/news.json?secret=PP87ANTIPIRATE")
       .then(r => {

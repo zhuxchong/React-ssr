@@ -35,4 +35,7 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+Home.loadData = store => {
+  store.dispatch(getHomeList());
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
