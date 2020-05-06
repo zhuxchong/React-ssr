@@ -6,8 +6,21 @@ import Header from "./components/Header";
 const ClientRoute = () => {
   return (
     <div>
-      <Route path="/" exact component={Home}></Route>
-      <Route path="/login" exact component={Login}></Route>
+      {[
+        {
+          path: "/",
+          component: Home,
+          exact: true,
+          loadData: Home.loadData
+        },
+        {
+          path: "/login",
+          component: Login,
+          exact: true
+        }
+      ].map(i => (
+        <Route {...i} key={i.path} />
+      ))}
     </div>
   );
 };
