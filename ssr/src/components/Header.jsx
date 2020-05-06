@@ -4,11 +4,9 @@ const Header = () => {
   return (
     <div>
       <div>
-        {" "}
         <Link to="/">Home</Link>
       </div>
       <div>
-        {" "}
         <Link to="/login">Login</Link>
       </div>
     </div>

@@ -17,22 +17,18 @@ const currentRouters = [
   }
 ];
 
-const ClientRoute = () => {
-  return (
-    <div>
-      {currentRouters.map(i => (
-        <Route {...i} key={i.path} />
-      ))}
-    </div>
-  );
+const ServerRoute = () => {
+  return currentRouters.map(i => <Route {...i} key={i.path} />);
 };
+
 const RouterWithPortal = () => {
   return (
     <React.Fragment>
       <Header />
-      <ClientRoute />
+      <ServerRoute />
     </React.Fragment>
   );
 };
+
 export default RouterWithPortal;
 export { currentRouters };

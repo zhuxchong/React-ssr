@@ -1,22 +1,11 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
-import Routes, { currentRouters } from "../Routes";
+import Routes from "../Routes";
 import { Provider } from "react-redux";
-import getStore from "../store";
-import { matchRoutes } from "react-router-config";
 
-export const render = req => {
-  const store = getStore();
-  const matchRouter = matchRoutes(currentRouters, req.path);
+export const render = (req, store) => {
   //console.log(matchRouter);
-  matchRouter.forEach(item => {
-    if (item.route.loadData) {
-      item.route.loadData(store);
-    }
-  });
-  // run loadData;
-  //console.log(store.getState());
 
   const content = renderToString(
     <Provider store={store}>
@@ -26,14 +15,29 @@ export const render = req => {
     </Provider>
   );
   return `
-		<html>
+    <html>
+    <script type="application/javascript"> 
+    const temp=window.history.state || {}
+    window.history.replaceState({...temp,storeInitial:${JSON.stringify(
+      store.getState().constainerReducer || {}
+    )}},"title 1")</script> 
 			<head>
 				<title>ssr</title>
 			</head>
-			<body>
-				<div id='root'>${content}</div>
-				<script src='./react_bundles.js'></script>
+      <body>
+      <div id='root'>${content}</div>
+      <script src='./react_bundles.js'></script>
+     
+    
+		
 			</body>
 		</html>
   `;
+
+  // run loadData;
 };
+// <div id='root'>${content}</div>
+//       <script window.context={
+//         state:${JSON.stringify(store.getState())}
+//       }></script>
+// 			<script src='./react_bundles.js'></script>

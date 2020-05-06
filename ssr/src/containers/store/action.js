@@ -8,8 +8,18 @@ const changeHomeList = data => {
   };
 };
 export const getHomeList = () => {
-  return async dispatch => {
-    axios
+  return dispatch => {
+    // const res = await axios.get(
+    //   "http://47.95.113.63/ssr/api/news.json?secret=PP87ANTIPIRATE"
+    // );
+
+    // try {
+    //   dispatch(changeHomeList(res.data.data));
+    // } catch (e) {
+    //   console.warn(e);
+    // }
+
+    return axios
       .get("http://47.95.113.63/ssr/api/news.json?secret=PP87ANTIPIRATE")
       .then(r => {
         dispatch(changeHomeList(r.data.data));

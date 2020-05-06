@@ -3,7 +3,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "../Routes";
-import getStore from "../store";
+import { getClientStore } from "../store";
 import { Provider } from "react-redux";
 
 // const Test = () => {
@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 // };
 //root内的内容会被react完全接管;
 const App = () => {
-  const store = getStore();
+  const store = getClientStore();
   return (
     <Provider store={store}>
       <BrowserRouter>

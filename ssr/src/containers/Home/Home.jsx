@@ -6,17 +6,14 @@ class Home extends React.Component {
     if (this.props.getList) this.props.getList();
   }
   render() {
-    const { name, list } = this.props;
+    const { list, name } = this.props;
+
     return (
-      <div
-        onClick={() => {
-          alert("123");
-        }}
-      >
+      <div>
         {(list || []).map((res, index) => (
           <div key={index}>{res.title}</div>
         ))}
-        welcome {name}
+        <div>welcome{name}</div>
       </div>
     );
   }
@@ -36,6 +33,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 Home.loadData = store => {
-  store.dispatch(getHomeList());
+  return store.dispatch(getHomeList());
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
