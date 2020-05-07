@@ -17,7 +17,7 @@ const currentRouters = [
   }
 ];
 
-const ServerRoute = () => {
+const Routes = () => {
   return currentRouters.map(i => <Route {...i} key={i.path} />);
 };
 
@@ -25,7 +25,7 @@ const RouterWithPortal = () => {
   return (
     <React.Fragment>
       <Header />
-      <ServerRoute />
+      <Routes />
     </React.Fragment>
   );
 };
