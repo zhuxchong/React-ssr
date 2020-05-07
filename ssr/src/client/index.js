@@ -2,7 +2,8 @@
 import React from "react";
 import ReactDom from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import Routes from "../Routes";
+import routes from "../Routes";
+import { renderRoutes } from "react-router-config";
 import { getClientStore } from "../store";
 import { Provider } from "react-redux";
 
@@ -14,9 +15,7 @@ const App = () => {
   const store = getClientStore();
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+      <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
     </Provider>
   );
 };

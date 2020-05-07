@@ -1,34 +1,27 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import App from "./App";
 import Home from "./containers/Home/Home";
 import Login from "./containers/Login/Login";
-import Header from "./components/Header";
-const currentRouters = [
+
+// 当我加载显示HOME组件之前，我希望调用Home.loadData方法，提前获取到必要的异步数据
+// 然后再做服务器端渲染，把页面返回给用户
+export default [
   {
     path: "/",
-    component: Home,
-    exact: true,
-    loadData: Home.loadData // for ssr load data, coz didmount in ssr doesnot work
-  },
-  {
-    path: "/login",
-    component: Login,
-    exact: true
+    component: App,
+    routes: [
+      {
+        path: "/",
+        component: Home,
+        exact: true,
+        loadData: Home.loadData,
+        key: "home"
+      },
+      {
+        path: "/login",
+        component: Login,
+        exact: true,
+        key: "login"
+      }
+    ]
   }
 ];
-
-const Routes = () => {
-  return currentRouters.map(i => <Route {...i} key={i.path} />);
-};
-
-const RouterWithPortal = () => {
-  return (
-    <React.Fragment>
-      <Header />
-      <Routes />
-    </React.Fragment>
-  );
-};
-
-export default RouterWithPortal;
-export { currentRouters };
