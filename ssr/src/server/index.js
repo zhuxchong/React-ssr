@@ -16,7 +16,7 @@ app.use(
   })
 );
 app.get("*", function(req, res) {
-  const store = getStore();
+  const store = getStore(req);
   const matchRouter = matchRoutes(routes, req.path);
   let promise = [];
   matchRouter.forEach(item => {

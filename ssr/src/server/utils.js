@@ -20,7 +20,7 @@ export const render = (req, store, routes) => {
     <script type="application/javascript"> 
     const temp=window.history.state || {}
     window.history.replaceState({...temp,storeInitial:${JSON.stringify(
-      store.getState().constainerReducer || {}
+      store.getState() || {}
     )}},"title 1")</script> 
 			<head>
 				<title>ssr</title>
