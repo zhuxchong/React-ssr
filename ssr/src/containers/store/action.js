@@ -7,7 +7,6 @@ const changeHomeList = data => {
   };
 };
 export const getHomeList = isServer => {
-  console.log(123);
   return (dispatch, getState, customAxios) => {
     // const res = await axios.get(
     //   "http://47.95.113.63/ssr/api/news.json?secret=PP87ANTIPIRATE"
@@ -35,10 +34,7 @@ export const getTranslation = () => {
       .get("/api/translations.json?secret=PP87ANTIPIRATE")
       .then(r => {
         if (r.success) {
-          dispatch({
-            type: Constant.GET_TRANSLATION,
-            data: []
-          });
+          return;
         } else {
           dispatch({
             type: Constant.GET_TRANSLATION,

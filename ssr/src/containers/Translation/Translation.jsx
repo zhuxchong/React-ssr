@@ -1,13 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getTranslation } from "../store/action";
+import { withRouter, Redirect } from "react-router-dom";
 class Translation extends React.Component {
+  constructor(props) {
+    super(props);
+    const { isLogin } = props;
+    if (!isLogin) props.history.push("/");
+  }
   componentDidMount() {
     const { getTranslation, isLogin } = this.props;
+    // if (!isLogin) this.props.history.push("/");
     if (getTranslation && isLogin) getTranslation();
   }
   render() {
-    const { translation } = this.props;
+    const { translation, isLogin } = this.props;
 
     return (
       <div>
@@ -35,4 +42,7 @@ const mapDispatchToProps = dispatch => {
 Translation.loadData = store => {
   return store.dispatch(getTranslation());
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Translation);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Translation));
