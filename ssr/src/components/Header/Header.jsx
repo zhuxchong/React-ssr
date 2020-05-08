@@ -10,6 +10,9 @@ const Header = props => {
       <div>
         <Link to="/">Home</Link>
       </div>
+      <div>
+        <Link to="/content">Content</Link>
+      </div>
 
       {isLogin ? (
         <React.Fragment>
@@ -22,7 +25,7 @@ const Header = props => {
             Logout
           </div>
           <div>
-            <Link to="/login">transition</Link>
+            <Link to="/translation">translation</Link>
           </div>
         </React.Fragment>
       ) : (

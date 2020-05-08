@@ -7,6 +7,7 @@ const changeHomeList = data => {
   };
 };
 export const getHomeList = isServer => {
+  console.log(123);
   return (dispatch, getState, customAxios) => {
     // const res = await axios.get(
     //   "http://47.95.113.63/ssr/api/news.json?secret=PP87ANTIPIRATE"
@@ -22,6 +23,28 @@ export const getHomeList = isServer => {
       .get("/api/news.json?secret=PP87ANTIPIRATE")
       .then(r => {
         dispatch(changeHomeList(r.data.data));
+      })
+      .catch(e => {
+        console.warn(e);
+      });
+  };
+};
+export const getTranslation = () => {
+  return (dispatch, getState, customAxios) => {
+    return customAxios
+      .get("/api/translations.json?secret=PP87ANTIPIRATE")
+      .then(r => {
+        if (r.success) {
+          dispatch({
+            type: Constant.GET_TRANSLATION,
+            data: []
+          });
+        } else {
+          dispatch({
+            type: Constant.GET_TRANSLATION,
+            data: r.data.data
+          });
+        }
       })
       .catch(e => {
         console.warn(e);
