@@ -8,7 +8,7 @@ const changeLogin = b => {
 export const getHeaderInfo = () => {
   return (dispatch, getState, customAxios) => {
     return customAxios
-      .get("/api/isLogin.json?secret=PP87ANTIPIRATE")
+      .get("/api/isLogin.json")
       .then(r => {
         // console.log(res.data.data.login);
 
@@ -19,12 +19,12 @@ export const getHeaderInfo = () => {
       });
   };
 };
-export const login = login => {
+export const login = url => {
   return (dispatch, getState, customAxios) => {
     return customAxios
-      .get(`/api/${login}.json?secret=PP87ANTIPIRATE`)
+      .get(`/api/${url}.json`)
       .then(r => {
-        dispatch(changeLogin("login" === login ? true : false));
+        dispatch(changeLogin("login" === url ? true : false));
       })
       .catch(e => {
         console.warn(e);

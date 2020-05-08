@@ -19,7 +19,7 @@ export const getHomeList = isServer => {
     // }
     //const request = isServer ? serverRequest : clientRequest;
     return customAxios
-      .get("/api/news.json?secret=PP87ANTIPIRATE")
+      .get("/api/news.json")
       .then(r => {
         dispatch(changeHomeList(r.data.data));
       })
@@ -28,10 +28,11 @@ export const getHomeList = isServer => {
       });
   };
 };
+//?secret=PP87ANTIPIRATE
 export const getTranslation = () => {
   return (dispatch, getState, customAxios) => {
     return customAxios
-      .get("/api/translations.json?secret=PP87ANTIPIRATE")
+      .get("/api/translations.json")
       .then(r => {
         if (r.success) {
           return;
