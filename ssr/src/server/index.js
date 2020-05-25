@@ -24,10 +24,15 @@ app.get("*", function(req, res) {
       promise.push(item.route.loadData(store));
     }
   });
+
   Promise.all(promise)
     .then(e => {
       const context = {};
       const html = render(req, store, routes, context);
+      console.log(context);
+      if ((context.action = "REPLACE")) {
+        res.redirect(301, context.url);
+      }
       if (context.notFound) {
         res.status(404);
         res.send(html);

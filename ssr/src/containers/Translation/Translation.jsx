@@ -5,8 +5,8 @@ import { withRouter, Redirect } from "react-router-dom";
 class Translation extends React.Component {
   constructor(props) {
     super(props);
-    const { isLogin } = props;
-    if (!isLogin) props.history.push("/");
+    // const { isLogin } = props;
+    // if (!isLogin) props.history.push("/");
   }
   componentDidMount() {
     const { getTranslation, isLogin } = this.props;
@@ -16,7 +16,9 @@ class Translation extends React.Component {
   render() {
     const { translation, isLogin } = this.props;
 
-    return (
+    return !isLogin ? (
+      <Redirect to="/" />
+    ) : (
       <div>
         {(translation || []).map((res, index) => (
           <div key={index}>{res.title}</div>
