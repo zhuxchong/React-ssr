@@ -1,7 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getHomeList } from "../store/action";
+import style from "./style.css";
+import importStyle from "../../HOC/importStyle";
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
   componentDidMount() {
     if (this.props.getList) this.props.getList();
   }
@@ -9,7 +15,7 @@ class Home extends React.Component {
     const { list, name } = this.props;
 
     return (
-      <div>
+      <div className={style.testTest}>
         {(list || []).map((res, index) => (
           <div key={index}>{res.title}</div>
         ))}
@@ -32,7 +38,9 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
-Home.loadData = store => {
+
+const ConnectHome = connect(mapStateToProps, mapDispatchToProps)(Home);
+ConnectHome.loadData = store => {
   return store.dispatch(getHomeList());
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default importStyle(style, ConnectHome);

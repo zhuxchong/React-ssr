@@ -41,10 +41,12 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
-Translation.loadData = store => {
-  return store.dispatch(getTranslation());
-};
-export default connect(
+
+const ConnectedTranslate = connect(
   mapStateToProps,
   mapDispatchToProps
 )(withRouter(Translation));
+ConnectedTranslate.loadData = store => {
+  return store.dispatch(getTranslation());
+};
+export default ConnectedTranslate;

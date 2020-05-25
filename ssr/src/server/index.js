@@ -18,19 +18,26 @@ app.use(
 app.get("*", function(req, res) {
   const store = getStore(req);
   const matchRouter = matchRoutes(routes, req.path);
-  let promise = [];
+  let promises = [];
   matchRouter.forEach(item => {
     if (item.route.loadData) {
-      promise.push(item.route.loadData(store));
+      const promise = new Promise((res, rej) => {
+        //永远都会then
+        item.route
+          .loadData(store)
+          .then(res)
+          .catch(res);
+      });
+      promises.push(promise);
     }
   });
 
-  Promise.all(promise)
+  Promise.all(promises)
     .then(e => {
-      const context = {};
+      const context = { css: [] };
       const html = render(req, store, routes, context);
-      console.log(context);
-      if ((context.action = "REPLACE")) {
+      //console.log(context);
+      if (context.action === "REPLACE") {
         res.redirect(301, context.url);
       }
       if (context.notFound) {
@@ -40,7 +47,9 @@ app.get("*", function(req, res) {
         res.send(html);
       }
     })
-    .catch(e => console.warn(e));
+    .catch(e => {
+      res.end("error");
+    });
 });
 
 var server = app.listen(3000);

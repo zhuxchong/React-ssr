@@ -15,9 +15,11 @@ export const render = (req, store, routes, context) => {
       </StaticRouter>
     </Provider>
   );
+  const cssStr = Array.isArray(context.css) ? context.css.join("\n") : "";
   return `
     <html>
     <script type="application/javascript"> 
+    <style>${cssStr}</style>
     const temp=window.history.state || {}
     window.history.replaceState({...temp,storeInitial:${JSON.stringify(
       store.getState() || {}

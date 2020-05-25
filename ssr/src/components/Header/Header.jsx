@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "../store";
+//import "./style.css";
+
 const Header = props => {
   const { isLogin, handleLogin } = props;
   //console.log(isLogin);
