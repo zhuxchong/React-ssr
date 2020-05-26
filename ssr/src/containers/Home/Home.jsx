@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { getHomeList } from "../store/action";
 import style from "./style.css";
 import importStyle from "../../HOC/importStyle";
+import { Helmet } from "react-helmet";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   componentDidMount() {
     if (this.props.getList) this.props.getList();
@@ -16,6 +16,10 @@ class Home extends React.Component {
 
     return (
       <div className={style.testTest}>
+        <Helmet>
+          <title>HAHHAHA</title>
+          <meta name="description" content="you are sb"></meta>
+        </Helmet>
         {(list || []).map((res, index) => (
           <div key={index}>{res.title}</div>
         ))}
@@ -43,4 +47,5 @@ const ConnectHome = connect(mapStateToProps, mapDispatchToProps)(Home);
 ConnectHome.loadData = store => {
   return store.dispatch(getHomeList());
 };
-export default importStyle(style, ConnectHome);
+export default ConnectHome;
+//importStyle(style, ConnectHome);

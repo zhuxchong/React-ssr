@@ -28,6 +28,7 @@ const getStore = req => {
 };
 const getClientStore = () => {
   const defaultState = window.history.state.storeInitial || {};
+
   return createStore(
     reducer,
     {

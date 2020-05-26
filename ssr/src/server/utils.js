@@ -4,7 +4,7 @@ import { StaticRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import { renderRoutes } from "react-router-config";
-
+import { Helmet } from "react-helmet";
 export const render = (req, store, routes, context) => {
   //console.log(matchRouter);
 
@@ -15,24 +15,26 @@ export const render = (req, store, routes, context) => {
       </StaticRouter>
     </Provider>
   );
+  const helmet = Helmet.renderStatic();
   const cssStr = Array.isArray(context.css) ? context.css.join("\n") : "";
+
   return `
     <html>
-    <script type="application/javascript"> 
-    <style>${cssStr}</style>
-    const temp=window.history.state || {}
-    window.history.replaceState({...temp,storeInitial:${JSON.stringify(
-      store.getState() || {}
-    )}},"title 1")</script> 
-			<head>
-				<title>ssr</title>
+  
+			<head>   
+            ${helmet.title.toString()}
+            ${helmet.meta.toString()}
+             <style>${cssStr}</style>
 			</head>
       <body>
       <div id='root'>${content}</div>
+      <script> 
+          const temp=window.history.state || {}
+          window.history.replaceState({...temp,storeInitial:${JSON.stringify(
+            store.getState() || {}
+          )}},true)
+    </script> 
       <script src='./react_bundles.js'></script>
-     
-    
-		
 			</body>
 		</html>
   `;
