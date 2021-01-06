@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-stage-0": "^7.8.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-loader": "^8.0.5",
     "express": "^4.16.3",
     "express-http-proxy": "^1.6.0",
